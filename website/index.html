@@ -1,24 +1,42 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="NORTHLINE Utilities — moderation, support, tickets and AI tools for Discord communities.">
-<title>NORTHLINE Utilities</title><link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Northline — a modern marketplace for digital products and services.">
+<title>Northline — Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="noise"></div>
-<header class="nav wrap">
-<a class="brand" href="#top"><span class="mark">N</span><span>NORTHLINE</span></a>
-<nav><a href="#features">Features</a><a href="docs.html">Docs</a><a href="changelog.html">Changelog</a><a href="#support">Support</a></nav>
-<a class="nav-cta" id="inviteBtn" href="#">Add to Discord <b>↗</b></a>
+<div class="announcement">Northline Marketplace <span>•</span> Built for communities, creators and digital services</div>
+<header class="nav">
+<a class="brand" href="index.html"><span class="brand-mark">N</span><span>northline</span></a>
+<nav><a class="active" href="#discover">Discover</a><a href="#categories">Categories</a><a href="docs.html">Help</a></nav>
+<div class="nav-actions"><button class="icon-btn" id="searchToggle" aria-label="Search">⌕</button><a class="ghost-btn" href="#sell">Sell on Northline</a><a class="primary-btn" href="#products">Browse marketplace</a></div>
 </header>
-<main id="top">
-<section class="hero wrap"><div><div class="eyebrow"><i></i> DISCORD OPERATIONS, SIMPLIFIED</div><h1>Run your server<br><em>properly.</em></h1><p class="lead">NORTHLINE brings moderation, support tickets, AI assistance and staff tools together in one focused Discord utility bot.</p><div class="actions"><a class="button primary" id="heroInvite" href="#">Add NORTHLINE <b>↗</b></a><a class="button" href="#features">Explore features ↓</a></div><p class="trust">● Designed for serious Discord communities</p></div>
-<div class="dashboard"><div class="dash-head"><span>northline / overview</span><span class="live">● LIVE</span></div><div class="metrics"><div><small>MODERATION</small><strong>Active</strong><span>Automated records</span></div><div><small>SUPPORT</small><strong>AI + Staff</strong><span>Escalation ready</span></div><div><small>TICKETS</small><strong>6 types</strong><span>Structured intake</span></div><div><small>HISTORY</small><strong>Persistent</strong><span>Warnings & actions</span></div></div><div class="activity"><div class="activity-head"><span>Recent activity</span><span>LIVE</span></div><div class="row"><b>WARN</b><span>Member warning recorded</span><time>now</time></div><div class="row"><b>TICKET</b><span>AI support ticket opened</span><time>2m</time></div><div class="row"><b>LOG</b><span>Staff action logged</span><time>8m</time></div></div></div></section>
-<section class="strip"><div class="wrap"><span>MODERATION</span><i>•</i><span>SUPPORT</span><i>•</i><span>AI ASSISTANCE</span><i>•</i><span>AUDIT LOGS</span><i>•</i><span>STAFF TOOLS</span></div></section>
-<section id="features" class="section wrap"><div class="heading"><div class="eyebrow">01 / FEATURES</div><h2>Everything your staff<br>actually needs.</h2><p>No bloated control panel. No gimmicks. Just the tools that make running a community easier.</p></div><div class="grid"><article class="card wide"><span class="icon">⌁</span><h3>Moderation</h3><p>Warn, timeout, kick, ban and unban members with permission and hierarchy checks built in.</p><code>/warn · /timeout · /ban</code></article><article class="card"><span class="icon">◎</span><h3>AI support</h3><p>Handle routine questions while escalating issues that need human staff.</p><code>/ai</code></article><article class="card"><span class="icon">▱</span><h3>Ticket system</h3><p>Structured support categories for general, marketplace, orders, sellers, reports and accounts.</p><code>6 categories</code></article><article class="card"><span class="icon">◌</span><h3>Member history</h3><p>Keep warnings, actions and internal staff notes in one persistent record.</p><code>/user-history</code></article><article class="card"><span class="icon">↳</span><h3>Staff controls</h3><p>Configured roles and hierarchy checks help prevent unauthorized actions.</p><code>role hierarchy</code></article><article class="card wide"><span class="icon">⌗</span><h3>Audit logging</h3><p>Record staff actions with timestamps, actors, targets and reasons for a reliable trail.</p><code>persistent action log</code></article></div></section>
-<section id="commands" class="section dark"><div class="wrap command-layout"><div class="heading"><div class="eyebrow">02 / COMMANDS</div><h2>Simple commands.<br>Serious control.</h2><p>Discord slash commands keep everyday staff work fast and familiar.</p></div><div class="commands"><div><code>/warn</code><span>Warn a member and record the reason.</span></div><div><code>/warnings</code><span>View a member's warning history.</span></div><div><code>/timeout</code><span>Apply a temporary timeout.</span></div><div><code>/kick</code><span>Remove a member from the server.</span></div><div><code>/ban</code><span>Ban a member and log the action.</span></div><div><code>/user-history</code><span>Review recorded NORTHLINE history.</span></div><div><code>/staff-note</code><span>Add an internal staff note.</span></div><div><code>/setup-tickets</code><span>Post or refresh the support panel.</span></div></div></div></section>
-<section id="support" class="section wrap"><div class="support"><div><div class="eyebrow">03 / SUPPORT</div><h2>Need help?<br>Start with a ticket.</h2><p>NORTHLINE can collect details, answer routine questions and escalate when staff involvement is required.</p></div><a class="button primary" id="supportInvite" href="#">Add NORTHLINE <b>↗</b></a></div></section>
+<main>
+<section class="hero" id="discover">
+<div class="hero-copy"><div class="eyebrow"><span class="status-dot"></span> Marketplace is live</div><h1>Find something worth<br><span>adding to your stack.</span></h1><p>Discover useful digital products, community services and tools from independent creators — all in one place.</p><div class="hero-actions"><a class="primary-btn large" href="#products">Explore products <span>→</span></a><a class="text-btn" href="#categories">View categories</a></div></div>
+<div class="hero-card"><div class="hero-card-top"><span>Featured today</span><span class="pill">Featured</span></div><div class="featured-icon">✦</div><h3>Northline Utility Pack</h3><p>A clean collection of practical tools for Discord communities and online projects.</p><div class="featured-bottom"><strong>$9.99</strong><span>Digital delivery</span></div></div>
+</section>
+<section class="trust-row"><div><strong>Simple</strong><span>No clutter, just products.</span></div><div><strong>Digital-first</strong><span>Built for online communities.</span></div><div><strong>Creator-led</strong><span>Independent sellers welcome.</span></div></section>
+<section class="section" id="categories"><div class="section-head"><div><span class="section-kicker">BROWSE</span><h2>Shop by category</h2></div><a class="text-btn" href="#products">See all →</a></div>
+<div class="category-grid">
+<a class="category-card" href="#products" data-filter="Discord"><span class="cat-icon">◈</span><div><h3>Discord</h3><p>Bots, setups & community tools</p></div><span class="arrow">→</span></a>
+<a class="category-card" href="#products" data-filter="Design"><span class="cat-icon">◇</span><div><h3>Design</h3><p>Branding, graphics & assets</p></div><span class="arrow">→</span></a>
+<a class="category-card" href="#products" data-filter="Websites"><span class="cat-icon">⌘</span><div><h3>Websites</h3><p>Templates & custom builds</p></div><span class="arrow">→</span></a>
+<a class="category-card" href="#products" data-filter="Services"><span class="cat-icon">+</span><div><h3>Services</h3><p>People who can build it for you</p></div><span class="arrow">→</span></a>
+</div></section>
+<section class="section products-section" id="products"><div class="section-head"><div><span class="section-kicker">TRENDING</span><h2>Popular right now</h2></div><div class="filters"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Discord">Discord</button><button class="filter" data-filter="Design">Design</button><button class="filter" data-filter="Websites">Websites</button><button class="filter" data-filter="Services">Services</button></div></div>
+<div class="product-grid">
+<article class="product-card" data-category="Discord"><div class="product-art art-dark"><span>NL</span></div><div class="product-info"><div class="product-meta"><span>Discord</span><span>★ 4.9</span></div><h3>Northline Utility Bot</h3><p>Moderation, tickets and everyday server utilities.</p><div class="price-row"><strong>$14.99</strong><button class="buy-btn">View product</button></div></div></article>
+<article class="product-card" data-category="Design"><div class="product-art art-grid"><span>BRAND</span></div><div class="product-info"><div class="product-meta"><span>Design</span><span>★ 4.8</span></div><h3>Community Brand Kit</h3><p>Logo, banners and matching social assets.</p><div class="price-row"><strong>$19.99</strong><button class="buy-btn">View product</button></div></div></article>
+<article class="product-card" data-category="Websites"><div class="product-art art-browser"><div class="browser-bar"></div><div class="browser-lines"></div></div><div class="product-info"><div class="product-meta"><span>Websites</span><span>★ 5.0</span></div><h3>Starter Landing Page</h3><p>A polished responsive landing page ready to customize.</p><div class="price-row"><strong>$24.99</strong><button class="buy-btn">View product</button></div></div></article>
+<article class="product-card" data-category="Services"><div class="product-art art-service"><span>BUILD<br>WITH<br>CARE</span></div><div class="product-info"><div class="product-meta"><span>Services</span><span>★ 4.9</span></div><h3>Custom Discord Setup</h3><p>Channels, roles, permissions and a clean server structure.</p><div class="price-row"><strong>From $29</strong><button class="buy-btn">View product</button></div></div></article>
+</div></section>
+<section class="sell-section" id="sell"><div><span class="section-kicker">FOR CREATORS</span><h2>Have something worth selling?</h2><p>Put your digital products and services in front of people who actually need them.</p></div><a class="light-btn" href="mailto:support@northline.example">Become a seller <span>→</span></a></section>
 </main>
-<footer class="footer wrap"><a class="brand" href="#top"><span class="mark">N</span><span>NORTHLINE</span></a><span>Utilities for Discord communities.</span><span>© <span id="year"></span> NORTHLINE</span></footer>
-<script src="app.js"></script></body></html>
+<footer><div class="footer-main"><a class="brand" href="index.html"><span class="brand-mark">N</span><span>northline</span></a><p>Digital marketplace for modern communities.</p><div class="footer-links"><a href="docs.html">Help</a><a href="changelog.html">Changelog</a><a href="mailto:support@northline.example">Support</a></div></div><div class="footer-bottom"><span>© 2026 Northline. All rights reserved.</span><span>Made for the internet.</span></div></footer>
+<script src="app.js"></script>
+</body></html>
