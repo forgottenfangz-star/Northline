@@ -27,8 +27,7 @@ export default function Home(){
   return <main>
     <nav className="nav"><Link className="brand" href="/">NORTHLINE<span>™</span></Link><div className="navlinks"><Link href="/marketplace">Marketplace</Link><Link href="/trade-guard">Trade Guard</Link><Link href="/seller">Become a Seller</Link></div><div className="navactions"><Link href="/login">Sign in</Link><Link className="button small" href="/signup">Create account</Link></div></nav>
     <section ref={hero} className="hero mountainHero">
-      <div className="sky"/>
-      <div className="stars"/>
+      <div className="sky"/><div className="stars"/>
       <div className="aurora auroraOne"/><div className="aurora auroraTwo"/>
       <div className="mountain mountainBack"/><div className="mountain mountainFront"/>
       <div className="snowfall">{Array.from({length:38},(_,i)=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div>
