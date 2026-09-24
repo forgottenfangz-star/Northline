@@ -104,3 +104,61 @@ create policy "active services public read" on public.services for select using 
 create policy "own orders read" on public.orders for select using (auth.uid()=buyer_id or auth.uid()=seller_id);
 create policy "own applications read" on public.seller_applications for select using (auth.uid()=user_id);
 create policy "own applications create" on public.seller_applications for insert with check (auth.uid()=user_id);
+
+
+create or replace function public.can_manage_role(actor text, target text)
+returns boolean language sql immutable as $$
+select case actor
+  when 'management' then target <> 'management'
+  when 'administrator' then target in ('member','seller','support','moderator','senior_moderator','supervisor')
+  when 'supervisor' then target in ('member','seller','support','moderator')
+  when 'senior_moderator' then target in ('member','seller','support','moderator')
+  when 'moderator' then target in ('member','seller')
+  when 'support' then target in ('member','seller')
+  else false end;
+$$;
+
+create or replace function public.management_update_user(
+  target_id uuid,
+  new_role text default null,
+  new_reputation text default null,
+  new_flag text default null,
+  new_flag_reason text default null
+)
+returns public.profiles
+language plpgsql security definer set search_path = public as $$
+declare
+  actor public.profiles;
+  target public.profiles;
+  result public.profiles;
+begin
+  select * into actor from public.profiles where id=auth.uid();
+  select * into target from public.profiles where id=target_id;
+  if actor.id is null or target.id is null then raise exception 'Account not found'; end if;
+
+  if new_role is not null then
+    if new_role not in ('member','seller','support','moderator','senior_moderator','supervisor','administrator','management') then raise exception 'Invalid role'; end if;
+    if not public.can_manage_role(actor.role,new_role) then raise exception 'Insufficient permission to assign this role'; end if;
+  end if;
+
+  if new_reputation is not null and new_reputation not in ('Trusted','Verified','Caution','Restricted','No Rating') then raise exception 'Invalid reputation'; end if;
+
+  update public.profiles set
+    role=coalesce(new_role,role),
+    reputation=coalesce(new_reputation,reputation),
+    account_flag=coalesce(new_flag,account_flag),
+    flag_reason=case when new_flag is not null then new_flag_reason else flag_reason end,
+    flagged_at=case when new_flag is not null then now() else flagged_at end,
+    flagged_by=case when new_flag is not null then actor.id else flagged_by end,
+    updated_at=now()
+  where id=target_id returning * into result;
+
+  insert into public.audit_logs(actor_id,action,target_user_id,metadata)
+  values(actor.id,'management_update_user',target_id,jsonb_build_object('role',new_role,'reputation',new_reputation,'flag',new_flag,'reason',new_flag_reason));
+
+  return result;
+end;
+$$;
+
+revoke all on function public.management_update_user(uuid,text,text,text,text) from public;
+grant execute on function public.management_update_user(uuid,text,text,text,text) to authenticated;
